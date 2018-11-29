@@ -28,6 +28,7 @@ wget https://physionet.org/pn3/incartdb/RECORDS
 
 # Besides, [package `wfdb` from Physionet](https://github.com/MIT-LCP/wfdb-python) can be used. After installing the package, run this python script:
 ```python
+import wfdb
 database="incartdb"
 print(wfdb.get_record_list(database))
 
