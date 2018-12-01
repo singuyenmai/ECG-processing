@@ -1,0 +1,3 @@
+# ignore any files in 'tmp' directory
+/tmp/
+
