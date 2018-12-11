@@ -58,7 +58,7 @@ class QRSDetectorOffline(object):
     SOFTWARE.
     """
 
-    def __init__(self, ecg_data_path, verbose=True, log_data=False, plot_data=False, show_plot=False):
+    def __init__(self, ecg_data_path, fs, verbose=True, log_data=False, plot_data=False, show_plot=False):
         """
         QRSDetectorOffline class initialisation method.
         :param string ecg_data_path: path to the ECG dataset
@@ -70,18 +70,18 @@ class QRSDetectorOffline(object):
         # Configuration parameters.
         self.ecg_data_path = ecg_data_path
 
-        self.signal_frequency = 250  # Set ECG device frequency in samples per second here.
+        self.signal_frequency = fs  # Set ECG device frequency in samples per second here.
 
-        self.filter_lowcut = 0.0
+        self.filter_lowcut = 5.0
         self.filter_highcut = 15.0
         self.filter_order = 1
 
-        self.integration_window = 15  # Change proportionally when adjusting frequency (in samples).
+        self.integration_window = np.int(np.round(0.06*fs))  # Change proportionally when adjusting frequency (in samples).
 
         self.findpeaks_limit = 0.35
-        self.findpeaks_spacing = 50  # Change proportionally when adjusting frequency (in samples).
+        self.findpeaks_spacing = np.int(np.round(0.2*fs))  # Change proportionally when adjusting frequency (in samples).
 
-        self.refractory_period = 120  # Change proportionally when adjusting frequency (in samples).
+        self.refractory_period = np.int(np.round(0.48*fs)) # Change proportionally when adjusting frequency (in samples).
         self.qrs_peak_filtering_factor = 0.125
         self.noise_peak_filtering_factor = 0.125
         self.qrs_noise_diff_weight = 0.25
