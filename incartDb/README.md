@@ -17,9 +17,9 @@ for i in {1..9}; do \
 done
 
 for i in {10..75}; do \
-	wget "$address"/I0"$i".dat;
-	wget "$address"/I0"$i".hea;
-	wget "$address"/I0"$i".atr;
+	wget "$address"/I"$i".dat;
+	wget "$address"/I"$i".hea;
+	wget "$address"/I"$i".atr;
 done
 
 wget https://physionet.org/pn3/incartdb/ANNOTATORS
