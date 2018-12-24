@@ -58,7 +58,7 @@ class QRSDetectorOffline(object):
     SOFTWARE.
     """
 
-    def __init__(self, ecg_data_path, fs, verbose=True, log_data=False, plot_data=False, show_plot=False):
+    def __init__(self, ecg_data_path, fs, findpeaks_limit, findpeaks_spacing_factor, verbose=True, log_data=False, plot_data=False, show_plot=False):
         """
         QRSDetectorOffline class initialisation method.
         :param string ecg_data_path: path to the ECG dataset
@@ -78,8 +78,8 @@ class QRSDetectorOffline(object):
 
         self.integration_window = np.int(np.round(0.06*fs))  # Change proportionally when adjusting frequency (in samples).
 
-        self.findpeaks_limit = 0.35
-        self.findpeaks_spacing = np.int(np.round(0.2*fs))  # Change proportionally when adjusting frequency (in samples).
+        self.findpeaks_limit = findpeaks_limit
+        self.findpeaks_spacing = np.int(np.round(findpeaks_spacing_factor*fs))  # Change proportionally when adjusting frequency (in samples).
 
         self.refractory_period = np.int(np.round(0.48*fs)) # Change proportionally when adjusting frequency (in samples).
         self.qrs_peak_filtering_factor = 0.125
