@@ -32,5 +32,5 @@ import wfdb
 database="incartdb"
 print(wfdb.get_record_list(database))
 
-wfdb.dl_database(database, '/home/singuyen/Study/biosignal/project/incartDb')
+wfdb.dl_database(database, os.getcwd())
 ```
