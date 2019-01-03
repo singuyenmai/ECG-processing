@@ -7,5 +7,5 @@ import wfdb
 database="nsrdb"
 print(wfdb.get_record_list(database))
 
-wfdb.dl_database(database)
+wfdb.dl_database(database, os.getcwd())
 ```
