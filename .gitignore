@@ -1,6 +1,5 @@
 # ignore any files in 'tmp', 'logs', 'plot' directory
 /tmp/
-/notebooks/plots/
 /notebooks/logs/
 
 
