@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
 from time import gmtime, strftime
@@ -122,7 +123,7 @@ class QRSDetectorOffline(object):
             self.log_detection_data()
 
         if plot_data:
-            self.plot_path = "{:s}QRS_offline_detector_plot_{:s}.png".format(PLOT_DIR,
+            self.plot_path = "{:s}QRS_offline_detector_plot_{:s}.svg".format(PLOT_DIR,
                                                                              strftime("%Y_%m_%d_%H_%M_%S", gmtime()))
             self.plot_detection_data(show_plot=show_plot)
 
@@ -229,16 +230,17 @@ class QRSDetectorOffline(object):
         Method responsible for plotting detection results.
         :param bool show_plot: flag for plotting the results and showing plot
         """
-        def plot_data(axis, data, title='', fontsize=10):
+        def plot_data(axis, data, title='', fontsize=18):
             axis.set_title(title, fontsize=fontsize)
             axis.grid(which='both', axis='both', linestyle='--')
+            axis.tick_params(labelsize=16)
             axis.plot(data, color="salmon", zorder=1)
 
         def plot_points(axis, values, indices):
             axis.scatter(x=indices, y=values[indices], c="black", s=50, zorder=2)
 
         plt.close('all')
-        fig, axarr = plt.subplots(6, sharex=True, figsize=(15, 18))
+        fig, axarr = plt.subplots(6, sharex=True, figsize=(21, 24))
 
         plot_data(axis=axarr[0], data=self.ecg_data_raw[:, 1], title='Raw ECG measurements')
         plot_data(axis=axarr[1], data=self.filtered_ecg_measurements, title='Filtered ECG measurements')
