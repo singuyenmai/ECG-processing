@@ -12,6 +12,8 @@ PLOT_DIR = "plots/"
 class QRSDetectorOffline(object):
     """
     Python Offline ECG QRS Detector based on the Pan-Tomkins algorithm.
+    ***Modified by Si-Nguyen Mai (International University, VNU-HCMC) on January, 2019.
+    ***Below information is from original authors.
     
     Michał Sznajder (Jagiellonian University) - technical contact (msznajder@gmail.com)
     Marta Łukowska (Jagiellonian University)
@@ -314,3 +316,4 @@ class QRSDetectorOffline(object):
 if __name__ == "__main__":
     qrs_detector = QRSDetectorOffline(ecg_data_path="ecg_data/ecg_data_1.csv", verbose=True,
                                       log_data=True, plot_data=True, show_plot=False)
+
