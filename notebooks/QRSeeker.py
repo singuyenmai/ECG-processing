@@ -4,7 +4,7 @@ import wfdb
 from wfdb import processing
 
 import sys
-sys.path.append("/home/singuyen/project_biosignal/c-labpl.qrs_detector.master")
+sys.path.append("/home/singuyen/project_biosignal/scripts/c-labpl.qrs_detector.master")
 
 from QRSDetectorOffline import QRSDetectorOffline
 
