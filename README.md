@@ -1,2 +1,2 @@
 # ECG-processing
-My project in the course of Biosignal Processing belonging to my bachelor program in Biomedical Engineering at International University, Vietnam National University HCMC.
+A very short project on processing ECG data. The project is a part of the Biosignal Processing course I followed during my bachelor study. 
